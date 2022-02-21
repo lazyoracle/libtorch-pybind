@@ -10,7 +10,8 @@ namespace py = pybind11;
 int rand_tensor(int a, int b, int c) {
     torch::Tensor tensor = torch::rand({a, b, c}); 
     std::cout << tensor << std::endl;
-    std::cout << "Hello Tensor" << std::endl;
+    int d = a + b + c;
+    return d;
 }
 
 PYBIND11_MODULE(_core, m) {
