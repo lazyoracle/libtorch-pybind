@@ -41,3 +41,12 @@ This will compile and link the C++ code, create the extensions and bindings and 
 ```python
 python -c "from libtorch_pybind import rand_tensor as rndt; print(rndt(1, 2, 3))"
 ```
+
+## TODO
+
+- [ ] Code linting with commit hooks for python and c++
+- [ ] Test setup for python and c++
+- [ ] Docs with sphinx and doxygen?
+- [ ] Conda build recipe
+- [ ] Github Actions for pip, conda and wheels
+- [ ] Use basic torch modules and functions to ensure compatibility
