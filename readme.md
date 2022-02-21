@@ -41,3 +41,13 @@ This will compile and link the C++ code, create the extensions and bindings and 
 ```python
 python -c "from libtorch_pybind import rand_tensor as rndt; print(rndt(1, 2, 3))"
 ```
+
+### wheels
+
+To build pre-compiled wheels for distribution, use the following command from the root of the repository after setting up the build toolchain and dependencies:
+
+```bash
+python -m pip wheel -w build/ .
+```
+
+You will find a `.whl` file in your `build/` directory which can then be used for standalone installations using `pip install libtorch_pybind-0.0.1-cp39-cp39-linux_x86_64.whl`. Note that this is python version, OS and arch specific. Consider using `manylinux` and `cibuildwheel`.
