@@ -3,11 +3,24 @@ cmake_minimum_required(VERSION 3.15...3.19)
 project(libtorch_pybind VERSION "0.0.1")
 
 # set an environment variable to where you unzipped libtorch
+# this is used for creating binary wheels at build time
 list(APPEND CMAKE_PREFIX_PATH "$ENV{TORCH_PATH}")
 find_package(Torch REQUIRED)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
-
+# use, i.e. don't skip the full RPATH for the build tree
+set(CMAKE_SKIP_BUILD_RPATH FALSE)
+ 
+# when building, don't use the install RPATH already
+# (but later on when installing)
+set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+# set the rpath to look for runtime shared dependencies
+set(CMAKE_INSTALL_RPATH "$ENV{HOME}/.ltpb/lib")
+ 
+# add the automatically determined parts of the RPATH
+# which point to directories outside the build tree to the install RPATH
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 if(SKBUILD)
   # Scikit-Build does not add your site-packages to the search path
