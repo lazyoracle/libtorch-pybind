@@ -22,7 +22,9 @@ We list below the scenario(s) that might motivate you to build a solution like t
 
 ### libtorch
 
-Get precompiled dynamically linked binaries from [here](https://pytorch.org/get-started/locally/#start-locally). These get unzipped to `libtorch/`. Thereafter, the `libtorch/lib/*.so*` must be copied over to your system shared library location (typically `/usr/lib/`).
+Get precompiled dynamically linked binaries from [here](https://pytorch.org/get-started/locally/#start-locally). These get unzipped to `libtorch/`. Thereafter, the `libtorch/lib/*.so*` must be copied over to your system shared library location (typically `/usr/lib/`). 
+
+Alternatively, you can use the example setup script as such `source setuptorch.sh` which will download, unzip, copy files and set necessary environment variables.
 
 ### build tools
 
